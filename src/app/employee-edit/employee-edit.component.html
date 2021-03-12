@@ -1,0 +1,35 @@
+<fieldset>
+  <legend>Edit employee</legend>
+  <form #EmployeeForm="ngForm" (ngSubmit)="submit(EmployeeForm)">
+    <table>
+      <tr>
+        <td>Employee Name:</td>
+        <td><input type="text" name="name"  [ngModel]="employee.name"></td>
+      </tr>
+      <tr>
+        <td>Employee Age:</td>
+        <td><input type="number" name="age"  [ngModel]="employee.age"></td>
+      </tr>
+      <tr>
+        <td>Position:</td>
+        <td><select name="position" ngModel>
+          <option value="1" *ngIf="!positions">default</option>
+          <option *ngFor="let position of positions"  value="{{position.id}}">{{position.name}}</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Office:</td>
+        <td>
+          <select name="office" ngModel>
+            <option *ngFor="let office of offices" value="{{office.id}}">{{office.name}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button>Submit</button></td>
+        <button routerLink="/">Cancel</button>
+      </tr>
+    </table>
+  </form>
+</fieldset>

@@ -1,0 +1,32 @@
+<fieldset>
+  <legend>Employee Detail</legend>
+  <table>
+    <tr>
+      <td>Employee Name:</td>
+      <td>{{employee.name}}</td>
+    </tr>
+    <tr>
+      <td>Employee Age:</td>
+      <td>{{employee.age}}</td>
+    </tr>
+    <tr>
+      <td>Employee Position</td>
+      <td>{{employee.position.name}}</td>
+    </tr>
+    <tr>
+      <td>Employee Office</td>
+      <td>{{employee.office.name}}</td>
+    </tr>
+    <tr>
+      <td>Date join</td>
+      <td>{{employee.date}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button (click)="delete()">Delete</button>
+        <button routerLink="/">Cancel</button>
+      </td>
+    </tr>
+  </table>
+</fieldset>

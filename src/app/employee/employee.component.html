@@ -1,0 +1,33 @@
+<nav>
+  <a routerLink="/create">Add new Employee</a>
+</nav>
+<fieldset>
+  <legend>Employees</legend>
+  <div>
+    <input type="text" #name placeholder="Search by name">
+    <button (click)="searchByName(name.value)">Search</button>
+  </div>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>Position</td>
+      <td>Office</td>
+      <td>Age</td>
+      <td>Start Date</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.name}}</td>
+      <td>{{employee.position.name}}</td>
+      <td>{{employee.office.name}}</td>
+      <td>{{employee.age}}</td>
+      <td>{{employee.date}}</td>
+      <td><button routerLink="/edit/{{employee.id}}">Edit</button></td>
+      <td><button routerLink="/delete/{{employee.id}}">Delete</button></td>
+    </tr>
+  </table>
+</fieldset>
+<button *ngIf="page" (click)="previousButton()">Previous</button>
+  Page {{page + 1}} of {{totalPage}}
+  <button *ngIf="page <= totalPage" (click)="nextButton()">Next</button>
